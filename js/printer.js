@@ -486,8 +486,7 @@ function barcode(){
     }
 }
 
-function print_order(order, order_id){
-    // var devices = escpos.USB.findPrinter();
+  // var devices = escpos.USB.findPrinter();
 
 // devices.forEach(function(el) { 
 //     let device = new escpos.USB(el)
@@ -503,6 +502,13 @@ function print_order(order, order_id){
 //         .close()
 //     });
 // })
+
+function print_order(order, order_id){
+  
+    let total = 0
+    order.map(item => {
+        total = total + (item.Product.Price.sale * item.quanty)
+    })
     try {
         let device  = new escpos.USB(config.vendor, config.product)
         let printer = new escpos.Printer(device)
@@ -522,7 +528,8 @@ function print_order(order, order_id){
             printer.style('B')
             printer.tableCustom([
                 {text:'#', align:"LEFT", width:0.1},
-                {text:'Producto', align:"LEFT", width:0.8},
+                {text:'Producto', align:"LEFT", width:0.65},
+                {text:'subtotal', align:"LEFT", width:0.3},
                 ])
             printer.style('NORMAL')
             order.forEach(item => {
@@ -532,12 +539,14 @@ function print_order(order, order_id){
                 }
                 printer.tableCustom([
                     {text:item.quanty, align:"LEFT", width:0.1},
-                    {text:name, align:"LEFT", width:0.8},       
+                    {text:name, align:"LEFT", width:0.65}, 
+                    {text:utilities.render_money_string(item.Product.Price.sale * item.quanty), align:"LEFT", width:0.3},      
                 ])
             })
 
-  
+            
             printer.text('------------------------')
+            printer.text('TOTAL: ' + utilities.render_money_string(total))
             printer.style('NORMAL')
             if (config.second_ticket_barcode == true){
                 printer.barcode(order_id, 'CODE39')

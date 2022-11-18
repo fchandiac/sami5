@@ -17,9 +17,9 @@
     <div id="top_bar" class="top-bar">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a id="cash_resgister_tab_btn" class="nav-link active" id="products_tab_btn">Caja</a>
+                <a id="cash_resgister_tab_btn" class="nav-link active" id="products_tab_btn">Carro de pedidos</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item d-none">
                 <a id="movements_tab_btn" class="nav-link no-active-tab">Movimientos de caja</a>
             </li>
             <li class="nav-item">
@@ -55,7 +55,7 @@
     <div id="cash_register_body" class="content-body-col-40-60">
         <div>
             <div id="container_finders_01" class="conten-col-50-50">
-                <form class="funcional-box control-bar  mrgn-bottom pdd-left" onsubmit="return false">
+                <form class="funcional-box control-bar mrgn-right  mrgn-bottom pdd-left" onsubmit="return false">
                     <label id="codigo_label" class="col-sm-3 col-form-label">Código</label>
                     <div class="col-sm-6">
                         <input id="cash_register_code_input" type="text" class="form-control form-control-sm">
@@ -66,7 +66,7 @@
                     </div>
                 </form>
 
-                <form id="order_loader_form" class="funcional-box control-bar mrgn-left mrgn-bottom pdd-left pdd-right"
+                <form id="order_loader_form" class="d-none funcional-box control-bar mrgn-left mrgn-bottom pdd-left pdd-right"
                     onsubmit="return false">
                     <label class="col-sm-3 col-form-label">Pedido</label>
                     <div class="col-sm">
@@ -78,7 +78,7 @@
                     </div>
                 </form>
 
-                <form id="search_form" class="funcional-box control-bar mrgn-left mrgn-bottom pdd-left pdd-right"
+                <form id="search_form" class=" mrgn-left funcional-box control-bar mrgn-bottom pdd-left pdd-right"
                     onsubmit="return false">
                     <div class="col-sm">
                         <input id="search_input" class="form-control form-control-sm" placeholder="Buscar producto..."
@@ -113,12 +113,12 @@
                 <div id="cash_register_cart_grid"></div>
             </div>
             <div class="pay-parameters-box ">
-                <div class="orders-to-close-box">
+                <div class="orders-to-close-box d-none">
                     <p>Pedidos a cerrar:</p>
                     <div id="order_to_close_container"></div>
                 </div>
-                <div class="conten-col-4">
-                    <div class="mrgn-top mrgn-left">
+                <div class="conten-col-2 align-items-right">
+                    <div class="mrgn-top mrgn-left d-none">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="payment_option" id="cash_payment_option"
                                 checked>
@@ -135,13 +135,13 @@
                             <label class="form-check-label">Crédito</label>
                         </div>
                     </div>
-                    <div class="mrgn-top">
+                    <div class="mrgn-top mrgn-left">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="ticket_option" id="ticket_radio"
                                 value="0" checked>
                             <label class="form-check-label">Ticket</label>
                         </div>
-                        <div class="form-check">
+                        <div class="form-check d-none">
                             <input class="form-check-input" type="radio" name="ticket_option" id="boleta_radio"
                                 value="1">
                             <label class="form-check-label">Boleta</label>
@@ -152,11 +152,11 @@
                             <label class="form-check-label">sin Impresora</label>
                         </div>
                     </div>
-                    <div class="mrgn-top align-left mrgn-right">
+                    <div class="mrgn-top mrgn-right align-items-right">
                         <button id="quote_btn" class="btn btn-primary">Cotizar</button>
                         <button id="order_btn" class="btn btn-primary">Nuevo Pedido</button>
                     </div>
-                    <div class="mrgn-top save-btn mrgn-right">
+                    <div class="mrgn-top save-btn mrgn-right d-none">
                         <button id="pay_btn" class="btn btn-primary btn-pay">PAGAR</button>
                     </div>
 
