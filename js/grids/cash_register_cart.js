@@ -15,6 +15,8 @@ const edit_quanty_form = document.getElementById('edit_quanty_form')
 //     {'id':1, 'name':'producto', 'price':1000, 'quanty':1, 'subtotal':1000},
 // ]
 
+
+
 var cart_id = 0
 var cart_to_edit = []
 

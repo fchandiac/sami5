@@ -58,6 +58,7 @@ const orders_grid = require('./js/grids/orders')
 
 
 
+
 const start_sales_grid_date_imput = document.getElementById('start_sales_grid_date_imput')
 const end_sales_grid_date_imput = document.getElementById('end_sales_grid_date_imput')
 
@@ -112,6 +113,14 @@ if (config.orders == true){
 
 //--------- -----------//
 
+// document.addEventListener('keypress', function(event) {
+//     if (event.key === 'F10') {
+//         event.preventDefault();
+//         console.log('juanito')
+//     }
+// })
+
+
 document.addEventListener('keypress', function(event) {
     // Number 13 is the "Enter"
     if ($('#alert_msg_modal').is(':visible')=== true){
@@ -143,7 +152,10 @@ document.addEventListener('keypress', function(event) {
     if (cash_register_tab_open === true){
         if (event.code === 'BracketRight') {
             event.preventDefault();
-            pay_btn.click()
+            order_btn.click()
+            //console.log('juanito')
+            //pay_btn.click()
+            
         }
 
     }
