@@ -135,7 +135,9 @@ function edit_item_on_cart(cart, id, value){
     })
     let quanty = cart[index].quanty
     cart[index].quanty = value
-    cart[index].subtotal = cart[index].quanty * cart[index].price
+    //let preSub = Math.round((cart[index].quanty * cart[index].price))
+    
+    cart[index].subtotal = Math.round((cart[index].quanty * cart[index].price))
 
     if(cart[index].quanty == 0){
         remove_product_from_cart(cart, cart[index].id)
@@ -167,3 +169,4 @@ function remove_order_from_cart(cart, order){
 }
 
 module.exports = {render, subtract_item_to_cart}
+

@@ -1,1 +1,1 @@
-{"authorization_code":"1234","state":0,"balance":0,"movements":[]}
+{"authorization_code":"1234","state":1,"balance":0,"movements":[{"type":"Apertura de caja","type_code":0,"sale_id":0,"amount":1000,"balance":1000,"fecha":"2022-11-19T23:55:42.168Z"}]}
